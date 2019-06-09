@@ -1,7 +1,7 @@
 ---
 name: User Story
 about: Descripción de la historia
-labels: user story
+labels: user-story
 id: SXX
 assigness: ''
 ---

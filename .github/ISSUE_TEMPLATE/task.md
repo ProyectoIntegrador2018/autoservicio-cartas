@@ -1,7 +1,7 @@
 ---
 name: Task
 about: Tarea técnica a realizar
-labels: todo
+labels: task
 assigness: ''
 ---
 
