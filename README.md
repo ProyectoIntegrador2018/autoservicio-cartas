@@ -3,11 +3,10 @@
 Proyecto elaborado para el departamento de Escolar del Campus Monterrey con el fin de ser un autoservicio de cartas y constancias académicas.
 
 ## Tabla de Contenidos
-* [URL del Sitio](#sitio)
-* [Detalles del Cliente](#Detalles-Cliente)
-* [Equipo](#team)
-* [Stack de Tecnologías](#Tech-stack)
-* [Instalacion del Proyecto](#setup)
+* [URL del Sitio](#URL-del-Sitio)
+* [Detalles del Cliente](#Detalles-del-Cliente)
+* [Equipo](#Equipo)
+* [Desarrollo](#Desarrollo)
 
 ## URL del Sitio
 https://www.tramitesescolares.com.mx/
