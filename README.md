@@ -14,7 +14,7 @@ https://www.tramitesescolares.com.mx/
 ## Detalles del Cliente
 Nombre | Correo | Rol
 ------ | ------ | ---
-Ing. Amanda Quiroz Vázquez | amanda@tec.mx | Profesora
+Ing. Amanda Quiroz Vázquez | amanda@tec.mx | Product Owner
 
 ## Equipo
 Nombre | Matrícula | Rol
@@ -22,7 +22,7 @@ Nombre | Matrícula | Rol
 Oscar Laureano | A00819139 | Dev
 Lucía Oseguera | A00818345 | Dev
 Abraham Pineda | A00759440 | Scrum Master
-Luis Rosales   | A01280221 | Product Owner
+Luis Rosales   | A01280221 | Product Owner Proxy
 
 ## Desarrollo
 
@@ -30,7 +30,7 @@ El stack de tecnologias se agrupa en dos partes. Tecnologias para front-end y te
 
 ### Stack de Tecnologías
 
-Fornt-End:
+Front-End:
 * [JavaScript](https://www.javascript.com) - Lenguaje de programación interpretado.
 * [React](https://reactjs.org) - Una biblioteca de JavaScript para construir interfaces de usuario
 * [Node.js](https://nodejs.org/es/) - Un entorno de ejecución para JavaScript construido con el motor de JavaScript V8 de Chrome.
