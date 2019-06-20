@@ -35,12 +35,6 @@ Front-End:
 * [React](https://reactjs.org) - Una biblioteca de JavaScript para construir interfaces de usuario
 * [Node.js](https://nodejs.org/es/) - Un entorno de ejecución para JavaScript construido con el motor de JavaScript V8 de Chrome.
 
-Back-End:
-* [Python](https://www.python.org) - Lenguaje de programación interpretado cuya filosofía hace hincapié en una sintaxis que favorezca un código legible.
-
-Base de datos:
-* [MySQL](https://www.mysql.com) - Es un sistema de gestión de bases de datos relacional 
-
 ### Instalacion del Proyecto
 
 Cambiar al directorio meta
@@ -50,7 +44,7 @@ cd NOMBRE_DE_DIRECTORIO
 
 Clonar el repositorio
 ```
-git clone https://github.com/ProyectoIntegrador2018/autoservicio-cartas.git
+git clone https://github.com/ProyectoIntegrador2018/autoservicio-cartas-front.git
 ```
 
 Pasos para instalar dependencias de proyecto Front-End:
@@ -67,38 +61,11 @@ Las librerias que se instalan son:
 * react-router-dom
 * universal-cookie
 
-Pasos para instalar dependencias de proyecto Back-End:
-
-Instalar Flask
-```
-pip install -U Flask
-```
-
-Instalar flask-cors
-```
-pip install -U flask-cors
-```
-
-Instalar PyMySQL
-```
-pip install -U PyMySQL
-```
-
-Instalar status
-```
-pip install -U status
-```
-
 ### Ejecución del Proyecto
 
 Ejecución de proyecto Front-End
 ```
 npm run start
-```
-
-Ejecucion de proyecto Back-End:
-```
-python -m flask run
 ```
 
 ### Lanzamiento
@@ -118,10 +85,5 @@ aws s3 sync build/ s3://NOMBRE_DE_BALDE_DE_S3
 Lanzamiento rapido invalidando caches.
 ```
 npm run deploy
-```
-
-Pasos para lanzar proyecto Back-End:
-```
-serverless deploy
 ```
 
