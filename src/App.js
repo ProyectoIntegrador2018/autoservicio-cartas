@@ -20,6 +20,8 @@ import Administradores from './views/Administradores';
 import Alumnos from './views/Alumnos';
 import TramitesAdmin from "./views/TramitesAdmin";
 import DashboardView from "./views/DashboardView";
+import CartasSolicitadasView from "./views/CartasSolicitadasView";
+import CartaSolicitar from "./views/CartaSolicitar";
 
 class App extends Component {
 
@@ -54,6 +56,8 @@ class App extends Component {
                         <Route exact path="/registro" component={this.RegisterView} />
                         <Route exact path="/tramite" component={this.StudentView} />
                         <Route exact path="/tramite/:id" component={this.AlumnosAdminTramiteView} />
+                        <Route exact path="/cartasSolicitadas" component={this.CartasSolicitadasView} />
+                        <Route exact path="/catalogo" component={this.CartaSolicitarView} />
 
                     </div>
                 </Router>
@@ -153,6 +157,20 @@ class App extends Component {
         return (
             <AppLayout view={"5"} type={"basic"}>
                 <TramitesAdmin/>
+            </AppLayout>
+        );
+    };
+    CartasSolicitadasView = () => {
+        return (
+            <AppLayout view={"7"} type={"basic"}>
+                <CartasSolicitadasView/>
+            </AppLayout>
+        );
+    };
+    CartaSolicitarView = () => {
+        return (
+            <AppLayout view={"8"} type={"basic"}>
+                <CartaSolicitar/>
             </AppLayout>
         );
     };

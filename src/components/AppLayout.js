@@ -48,6 +48,14 @@ export default class AppLayout extends Component {
                             <Link to={"/tramites"}><Icon type="solution" />
                                 <span className="nav-text">Trámites</span></Link>
                         </Menu.Item>
+                        <Menu.Item key="8">
+                            <Link to={"/cartas"}><Icon type="file-text" />
+                                <span className="nav-text">Cartas</span></Link>
+                        </Menu.Item>
+                        <Menu.Item key="7">
+                            <Link to={"/cartasSolicitadas"}><Icon type="solution" />
+                                <span className="nav-text">Cartas Solicitadas</span></Link>
+                        </Menu.Item>
                         <Menu.Item  key="3">
                             <Link to={"/procesos"}><Icon type="cluster" />
                                 <span className="nav-text">Procesos</span></Link>
