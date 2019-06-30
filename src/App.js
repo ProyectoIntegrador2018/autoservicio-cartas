@@ -23,6 +23,7 @@ import DashboardView from "./views/DashboardView";
 import CartasSolicitadasView from "./views/CartasSolicitadasView";
 import CartaSolicitar from "./views/CartaSolicitar";
 import FormatoCartas from "./views/FormatoCartas"
+import FormatoSubir from "./views/FormatoSubir"
 
 class App extends Component {
 
@@ -60,6 +61,7 @@ class App extends Component {
                         <Route exact path="/cartasSolicitadas" component={this.CartasSolicitadasView} />
                         <Route exact path="/cartas" component={this.CartaSolicitarView} />
                         <Route exact path="/formatoCartas" component={this.FormatoCartasView} />
+                        <Route exact path="/formatoCartas/subir" component={this.FormatoSubirView} />
 
                     </div>
                 </Router>
@@ -183,6 +185,14 @@ class App extends Component {
         return (
             <AppLayout view={"8"} type={"basic"}>
                 <FormatoCartas/>
+            </AppLayout>
+        );
+    };
+
+    FormatoSubirView = () => {
+        return (
+            <AppLayout view={"8"} type={"basic"}>
+                <FormatoSubir/>
             </AppLayout>
         );
     };

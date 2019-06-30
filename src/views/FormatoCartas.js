@@ -52,11 +52,11 @@ export default class FormatoCartas extends Component {
     render() {
         return (
             <div>
-                <Link to={'/documentos/subir'}><Button style={{float:'right'}} type="secondary" icon="upload">
+                <Link to={'/formatoCartas/subir'}><Button style={{float:'right'}} type="secondary" icon="upload">
                     Subir nuevo formato de carta</Button></Link>
                 <h1><Icon type="file-text" /> Formato de Cartas</h1>
 
-                
+
                 <Collapse defaultActiveKey={['0']} onChange={callback}>
                     <Panel header="Instrucciones" key="1">
                       <p>{"Aqui van las instrucciones"}</p>
