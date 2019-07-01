@@ -18,7 +18,7 @@ export default class CartaSolicitar extends Component {
 
     handleChange(event){
         let index = event.nativeEvent.target.selectedIndex;
-        let label = event.nativeEvent.target[index].text;
+        let label = event.target.options[event.target.selectedIndex].text;
         let value = event.target.value;
         this.setState({value: event.target.value});
     }
@@ -32,26 +32,26 @@ export default class CartaSolicitar extends Component {
                 <br></br>
                 <p>Las constancias académicas (cartas oficiales) incluyen el nombre completo y su número de matrícula y de acuerdo al tipo de documento se solicite, especificará la información correspondiente</p>
                 <div style={{ maxWidth: "550px", margin: "0 auto"}}>
-                    <Select defaultValue="1" onChange={(value) => { this.setState({ selectedOption: value }); }} autosize={false} style={{width:"100%"}}>
-                        <Select.Option value="1">Beca Telmex</Select.Option>
-                        <Select.Option value="2">Documentos en el instituto</Select.Option>
-                        <Select.Option value="3">Documentos en el instituto_INGLÉS</Select.Option>
-                        <Select.Option value="4">Estudios</Select.Option>
-                        <Select.Option value="5">Estudios con foto</Select.Option>
-                        <Select.Option value="6">Estudios con foto_INGLÉS</Select.Option>
-                        <Select.Option value="7">Migración</Select.Option>
-                        <Select.Option value="8">No baja</Select.Option>
-                        <Select.Option value="9">No baja_INGLÉS</Select.Option>
-                        <Select.Option value="10">Promedio acumulado</Select.Option>
-                        <Select.Option value="11">Promedio acumulado_INGLÉS</Select.Option>
-                        <Select.Option value="12">Promedio certificado</Select.Option>
-                        <Select.Option value="13">Promedio certificado_INGLÉS</Select.Option>
-                        <Select.Option value="14">Promedio y rango graduado</Select.Option>
-                        <Select.Option value="15">Promedio y rango graduado_INGLÉS</Select.Option>
-                        <Select.Option value="16">Terminación de carrera</Select.Option>
-                        <Select.Option value="17">Terminación de carrera_INGLÉS</Select.Option>
-                        <Select.Option value="18">Terminación de plan</Select.Option>
-                        <Select.Option value="19">Terminación de plan_INGLÉS</Select.Option>
+                    <Select defaultValue="Beca Telmex" onChange={(value) => { this.setState({ selectedOption: value }); }} autosize={false} style={{width:"100%"}}>
+                        <Select.Option value="Beca Telmex">Beca Telmex</Select.Option>
+                        <Select.Option value="Documentos en el instituto">Documentos en el instituto</Select.Option>
+                        <Select.Option value="Documentos en el instituto_INGLÉS">Documentos en el instituto_INGLÉS</Select.Option>
+                        <Select.Option value="Estudios">Estudios</Select.Option>
+                        <Select.Option value="Estudios con foto">Estudios con foto</Select.Option>
+                        <Select.Option value="Estudios con foto_INGLÉS">Estudios con foto_INGLÉS</Select.Option>
+                        <Select.Option value="Migración">Migración</Select.Option>
+                        <Select.Option value="No baja">No baja</Select.Option>
+                        <Select.Option value="No baja_INGLÉS">No baja_INGLÉS</Select.Option>
+                        <Select.Option value="Promedio acumulado">Promedio acumulado</Select.Option>
+                        <Select.Option value="Promedio acumulado_INGLÉS">Promedio acumulado_INGLÉS</Select.Option>
+                        <Select.Option value="Promedio certificado">Promedio certificado</Select.Option>
+                        <Select.Option value="Promedio certificado_INGLÉS">Promedio certificado_INGLÉS</Select.Option>
+                        <Select.Option value="Promedio y rango graduado">Promedio y rango graduado</Select.Option>
+                        <Select.Option value="Promedio y rango graduado_INGLÉS">Promedio y rango graduado_INGLÉS</Select.Option>
+                        <Select.Option value="Terminación de carrera">Terminación de carrera</Select.Option>
+                        <Select.Option value="Terminación de carrera_INGLÉS">Terminación de carrera_INGLÉS</Select.Option>
+                        <Select.Option value="Terminación de plan">Terminación de plan</Select.Option>
+                        <Select.Option value="Terminación de plan_INGLÉS">Terminación de plan_INGLÉS</Select.Option>
                     </Select>
 
                     
@@ -65,12 +65,12 @@ export default class CartaSolicitar extends Component {
                   </thead>  
                   <tr>
                     <th width="200px">Descripción: </th>
-                    <td id="DescInfo">Carta donde especifica que el alumno se encuentra inscrito en cierto periodo incluyendo el listado de materias inscritas, así como el promedio acumulado y el promedio del semestre anterior.</td>
+                    <td id="descInfo">Carta donde especifica que el alumno se encuentra inscrito en cierto periodo incluyendo el listado de materias inscritas, así como el promedio acumulado y el promedio del semestre anterior.</td>
                   </tr>
                   <br></br>
                   <tr>
                     <th>Requisitos: </th>
-                    <td>Ser alumno inscrito en el periodo académico vigente en Campus Monterrey</td>
+                    <td id="reqInfo">Ser alumno inscrito en el periodo académico vigente en Campus Monterrey</td>
                   </tr>
                   <br></br>
                   <tr>
