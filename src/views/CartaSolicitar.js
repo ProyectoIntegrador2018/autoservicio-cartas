@@ -59,21 +59,25 @@ export default class CartaSolicitar extends Component {
                 <br></br>
 
 
-                <table>
+                <table width="100%">
                   <thead>
                     <tr style={{backgroundColor: "#D3D3D3"}}><th id="TituloCarta" colspan="2">{this.state.selectedOption}</th></tr>
                   </thead>  
                   <tr>
-                    <th>Descripción: </th>
-                    <td id="DescInfo">Info</td>
+                    <th width="200px">Descripción: </th>
+                    <td id="DescInfo">Carta donde especifica que el alumno se encuentra inscrito en cierto periodo incluyendo el listado de materias inscritas, así como el promedio acumulado y el promedio del semestre anterior.</td>
                   </tr>
+                  <br></br>
                   <tr>
                     <th>Requisitos: </th>
-                    <td>Info</td>
+                    <td>Ser alumno inscrito en el periodo académico vigente en Campus Monterrey</td>
                   </tr>
+                  <br></br>
                   <tr>
                     <th>Medios de Solicitud de trámite: </th>
-                    <td>Info</td>
+                    <td>*Presencial: Centro de Atención Punto Azul ubicado en el sotano del CETEC Torre Norte con un horario de atención de Lunes a Viernes de 8:00 AM a 6:00 PM.<br></br>Los pagos en CAJA se reciben de lunes a viernes de 8:00 AM a 6:00 PM.<br></br><br></br>
+                    *Telefónico: Conmutador 83582000 Ext. 4241/ Directo 81582259  <br></br><br></br>
+                    *Correo electrónico: <u>escolar.mty@servicios.itesm.mx</u></td>
                   </tr>
                 </table>
 
