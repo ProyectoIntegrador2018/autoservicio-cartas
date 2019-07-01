@@ -70,27 +70,9 @@ export default class Documentos extends Component {
                 }, {
                     title: 'Tipo de carta',
                     key: 'id',
-                    render: (text, record) => (
-                        <div style={{textAlign:'center'}}>
-                            <a onClick={() => this.showContent(record)}><Icon type={'table'}/> Ver contenido</a>
-                        </div>
-                    ),
-                }]}/>
-
-                <Modal
-                    width={1300}
-                    title={this.state.record.nombre}
-                    visible={this.state.visible}
-                    onCancel={() => {this.setState({visible:false})}}
-                    footer={[
-                        <Button key="back" onClick={() => {this.setState({visible:false})}}>Cancelar</Button>,
-                        <Button key="submit" type="primary"  onClick={() => {this.setState({visible:false})}}>
-                            OK
-                        </Button>,]}>
-                    <div style={{textAlign:'right'}}><h3>{moment(this.state.record.fecha).format('DD-MMM-YYYY')}</h3></div>
-                    <DataTable columns={this.state.cols} data={this.state.data2}/>
-                </Modal>
-            </div>
+                }
+              ]}/>
+              </div>
         );
     }
 }
