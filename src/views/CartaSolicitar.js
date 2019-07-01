@@ -32,7 +32,7 @@ export default class CartaSolicitar extends Component {
                 <br></br>
                 <p>Las constancias académicas (cartas oficiales) incluyen el nombre completo y su número de matrícula y de acuerdo al tipo de documento se solicite, especificará la información correspondiente</p>
                 <div style={{ maxWidth: "550px", margin: "0 auto"}}>
-                    <Select defaultValue="1" onChange={(value) => { this.setState({ selectedOption: value }); }} autosize={false}>
+                    <Select defaultValue="1" onChange={(value) => { this.setState({ selectedOption: value }); }} autosize={false} style={{width:"100%"}}>
                         <Select.Option value="1">Beca Telmex</Select.Option>
                         <Select.Option value="2">Documentos en el instituto</Select.Option>
                         <Select.Option value="3">Documentos en el instituto_INGLÉS</Select.Option>
