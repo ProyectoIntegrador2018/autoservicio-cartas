@@ -27,9 +27,17 @@ export default class FormatoCartas extends Component {
 
     refreshData = () => {
         this.setState({loading:true});
-        API.call('documentos/',[], (response) => {
-            this.setState({data: response, loading:false});
+        API.restCall({
+            service:'obtener_cartas/',
+            method: "get",
+            params: "",
+            success:(response) => {
+                console.log(response)
+                this.setState({data: response, loading:false});
+            },
+            error:(response) => {this.setState({ loading: false })},
         });
+        
     };
 
     deleteFiles = (rows) => {
@@ -67,28 +75,20 @@ export default class FormatoCartas extends Component {
                            deleteFunc={this.deleteFiles} rowSelection={true}
                 columns={[{
                     title: 'Nombre del documento',
-                    key: 'nombre',
+                    key: 'nombre_carta',
+                    
 
                 }, {
                     title: 'Usuario',
-                    key: 'email',
+                    key: 'nombre',
 
                 }, {
                     title: 'Fecha',
-                    key: 'fecha',
-                    render: (text, record) => (
-                        <div style={{textAlign:'center'}}>
-                            <div>{moment(text).format('DD-MMM-YYYY')}</div>
-                        </div>
-                    ),
+                    key: 'fecha_creacion',
+
                 }, {
-                    title: 'Contenido subido',
-                    key: 'id',
-                    render: (text, record) => (
-                        <div style={{textAlign:'center'}}>
-                            <a onClick={() => this.showContent(record)}><Icon type={'table'}/> Ver contenido</a>
-                        </div>
-                    ),
+                    title: 'Tipo de carta',
+                    key: 'descripcion',
                 }]}/>
 
                 <Modal

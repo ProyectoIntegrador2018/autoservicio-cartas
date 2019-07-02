@@ -22,9 +22,17 @@ export default class Documentos extends Component {
 
     refreshData = () => {
         this.setState({loading:true});
-        API.call('documentos/',[], (response) => {
-            this.setState({data: response, loading:false});
+        API.restCall({
+            service:'obtener_cartas_alumnos/',
+            method: "get",
+            params: "",
+            success:(response) => {
+                console.log(response)
+                this.setState({data: response, loading:false});
+            },
+            error:(response) => {this.setState({ loading: false })},
         });
+        
     };
 
     deleteFiles = (rows) => {
@@ -41,6 +49,7 @@ export default class Documentos extends Component {
 
     showContent = (record) => {
         let data = JSON.parse(record.contenido_subido);
+        console.log(data);
         this.setState({cols:data.cols, data2:data.data, visible:true,record:record});
     };
 
@@ -52,24 +61,24 @@ export default class Documentos extends Component {
                 <DataTable loading={this.state.loading} data={this.state.data}
                            deleteFunc={this.deleteFiles} rowSelection={true}
                 columns={[{
-                    title: 'Nombre del alumno',
-                    key: 'nombre',
+                    title: 'Matrícula del alumno',
+                    key: 'matricula',
 
                 }, {
-                    title: 'Email',
-                    key: 'email',
+                    title: 'Nombre',
+                    key: 'nombre_alumno',
+
+                },{
+                    title: 'Apellidos',
+                    key: 'apellido',
 
                 }, {
                     title: 'Fecha solicitada',
-                    key: 'fecha',
-                    render: (text, record) => (
-                        <div style={{textAlign:'center'}}>
-                            <div>{moment(text).format('DD-MMM-YYYY')}</div>
-                        </div>
-                    ),
+                    key: 'fecha_creacion',
+
                 }, {
                     title: 'Tipo de carta',
-                    key: 'id',
+                    key: 'nombre_carta',
                 }
               ]}/>
               </div>

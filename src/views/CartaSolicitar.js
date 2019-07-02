@@ -18,7 +18,7 @@ export default class CartaSolicitar extends Component {
 
     handleChange(event){
         let index = event.nativeEvent.target.selectedIndex;
-        let label = event.nativeEvent.target[index].text;
+        let label = event.target.options[event.target.selectedIndex].text;
         let value = event.target.value;
         this.setState({value: event.target.value});
     }
@@ -32,26 +32,26 @@ export default class CartaSolicitar extends Component {
                 <br></br>
                 <p>Las constancias académicas (cartas oficiales) incluyen el nombre completo y su número de matrícula y de acuerdo al tipo de documento se solicite, especificará la información correspondiente</p>
                 <div style={{ maxWidth: "550px", margin: "0 auto"}}>
-                    <Select defaultValue="1" onChange={(value) => { this.setState({ selectedOption: value }); }} autosize={false}>
-                        <Select.Option value="1">Beca Telmex</Select.Option>
-                        <Select.Option value="2">Documentos en el instituto</Select.Option>
-                        <Select.Option value="3">Documentos en el instituto_INGLÉS</Select.Option>
-                        <Select.Option value="4">Estudios</Select.Option>
-                        <Select.Option value="5">Estudios con foto</Select.Option>
-                        <Select.Option value="6">Estudios con foto_INGLÉS</Select.Option>
-                        <Select.Option value="7">Migración</Select.Option>
-                        <Select.Option value="8">No baja</Select.Option>
-                        <Select.Option value="9">No baja_INGLÉS</Select.Option>
-                        <Select.Option value="10">Promedio acumulado</Select.Option>
-                        <Select.Option value="11">Promedio acumulado_INGLÉS</Select.Option>
-                        <Select.Option value="12">Promedio certificado</Select.Option>
-                        <Select.Option value="13">Promedio certificado_INGLÉS</Select.Option>
-                        <Select.Option value="14">Promedio y rango graduado</Select.Option>
-                        <Select.Option value="15">Promedio y rango graduado_INGLÉS</Select.Option>
-                        <Select.Option value="16">Terminación de carrera</Select.Option>
-                        <Select.Option value="17">Terminación de carrera_INGLÉS</Select.Option>
-                        <Select.Option value="18">Terminación de plan</Select.Option>
-                        <Select.Option value="19">Terminación de plan_INGLÉS</Select.Option>
+                    <Select defaultValue="Beca Telmex" onChange={(value) => { this.setState({ selectedOption: value }); }} autosize={false} style={{width:"100%"}}>
+                        <Select.Option value="Beca Telmex">Beca Telmex</Select.Option>
+                        <Select.Option value="Documentos en el instituto">Documentos en el instituto</Select.Option>
+                        <Select.Option value="Documentos en el instituto_INGLÉS">Documentos en el instituto_INGLÉS</Select.Option>
+                        <Select.Option value="Estudios">Estudios</Select.Option>
+                        <Select.Option value="Estudios con foto">Estudios con foto</Select.Option>
+                        <Select.Option value="Estudios con foto_INGLÉS">Estudios con foto_INGLÉS</Select.Option>
+                        <Select.Option value="Migración">Migración</Select.Option>
+                        <Select.Option value="No baja">No baja</Select.Option>
+                        <Select.Option value="No baja_INGLÉS">No baja_INGLÉS</Select.Option>
+                        <Select.Option value="Promedio acumulado">Promedio acumulado</Select.Option>
+                        <Select.Option value="Promedio acumulado_INGLÉS">Promedio acumulado_INGLÉS</Select.Option>
+                        <Select.Option value="Promedio certificado">Promedio certificado</Select.Option>
+                        <Select.Option value="Promedio certificado_INGLÉS">Promedio certificado_INGLÉS</Select.Option>
+                        <Select.Option value="Promedio y rango graduado">Promedio y rango graduado</Select.Option>
+                        <Select.Option value="Promedio y rango graduado_INGLÉS">Promedio y rango graduado_INGLÉS</Select.Option>
+                        <Select.Option value="Terminación de carrera">Terminación de carrera</Select.Option>
+                        <Select.Option value="Terminación de carrera_INGLÉS">Terminación de carrera_INGLÉS</Select.Option>
+                        <Select.Option value="Terminación de plan">Terminación de plan</Select.Option>
+                        <Select.Option value="Terminación de plan_INGLÉS">Terminación de plan_INGLÉS</Select.Option>
                     </Select>
 
                     
@@ -59,21 +59,25 @@ export default class CartaSolicitar extends Component {
                 <br></br>
 
 
-                <table>
+                <table width="100%">
                   <thead>
                     <tr style={{backgroundColor: "#D3D3D3"}}><th id="TituloCarta" colspan="2">{this.state.selectedOption}</th></tr>
                   </thead>  
                   <tr>
-                    <th>Descripción: </th>
-                    <td id="DescInfo">Info</td>
+                    <th width="200px">Descripción: </th>
+                    <td id="descInfo">Carta donde especifica que el alumno se encuentra inscrito en cierto periodo incluyendo el listado de materias inscritas, así como el promedio acumulado y el promedio del semestre anterior.</td>
                   </tr>
+                  <br></br>
                   <tr>
                     <th>Requisitos: </th>
-                    <td>Info</td>
+                    <td id="reqInfo">Ser alumno inscrito en el periodo académico vigente en Campus Monterrey</td>
                   </tr>
+                  <br></br>
                   <tr>
                     <th>Medios de Solicitud de trámite: </th>
-                    <td>Info</td>
+                    <td>*Presencial: Centro de Atención Punto Azul ubicado en el sotano del CETEC Torre Norte con un horario de atención de Lunes a Viernes de 8:00 AM a 6:00 PM.<br></br>Los pagos en CAJA se reciben de lunes a viernes de 8:00 AM a 6:00 PM.<br></br><br></br>
+                    *Telefónico: Conmutador 83582000 Ext. 4241/ Directo 81582259  <br></br><br></br>
+                    *Correo electrónico: <a><u>escolar.mty@servicios.itesm.mx</u></a></td>
                   </tr>
                 </table>
 
