@@ -56,12 +56,25 @@ export default class FormatoCartas extends Component {
         let data = JSON.parse(record.contenido_subido);
         this.setState({cols:data.cols, data2:data.data, visible:true,record:record});
     };
-
     render() {
+        let botonsubir
+        let permitirBorrar
+
+        if (localStorage.getItem("tipo") == '2') {
+            botonsubir = <Link to={'/formatoCartas/subir'}><Button style={{float:'right'}} type="secondary" icon="upload" disabled>Subir nuevo formato de carta</Button></Link>
+            permitirBorrar=false
+        }
+        else {
+            botonsubir = <Link to={'/formatoCartas/subir'}><Button style={{float:'right'}} type="secondary" icon="upload" >Subir nuevo formato de carta</Button></Link>
+            permitirBorrar=true
+        }
+
         return (
             <div>
-                <Link to={'/formatoCartas/subir'}><Button style={{float:'right'}} type="secondary" icon="upload">
-                    Subir nuevo formato de carta</Button></Link>
+
+                {botonsubir}
+
+
                 <h1><Icon type="file-text" /> Formato de Cartas</h1>
 
 
@@ -72,7 +85,7 @@ export default class FormatoCartas extends Component {
                 </Collapse>
 
                 <DataTable loading={this.state.loading} data={this.state.data}
-                           deleteFunc={this.deleteFiles} rowSelection={true}
+                           deleteFunc={this.deleteFiles} rowSelection={permitirBorrar}
                 columns={[{
                     title: 'Nombre del documento',
                     key: 'nombre_carta',
