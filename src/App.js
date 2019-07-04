@@ -88,14 +88,6 @@ class App extends Component {
         )
     };
 
-    CartaSolicitarView = () => {
-        return (
-            <AppLayoutUser view={"4"} type={"basic"}>
-                <CartaSolicitar/>
-            </AppLayoutUser>
-        );
-    };
-
     DashboardView = () => {
         return (
             <AppLayout view={"0"} type={"basic"}>
@@ -193,6 +185,14 @@ class App extends Component {
         return (
             <AppLayout view={"8"} type={"basic"}>
                 <FormatoSubir/>
+            </AppLayout>
+        );
+    };
+
+    CartaSolicitarView = () => {
+        return (
+            <AppLayout view={"9"} type={"basic"}>
+                <CartaSolicitar/>
             </AppLayout>
         );
     };

@@ -72,10 +72,6 @@ export default class AppLayoutUser extends Component {
                                     return (<Menu.Item onClick={() =>this.Despliega(objectToMap)}>{objectToMap.nombre}</Menu.Item>)})
                             }
                         </SubMenu>
-                        <Menu.Item  key="4">
-                        <Link to={"/cartas"}><Icon type="file-text" />
-                           <span className="nav-text">Cartas y Contancias</span></Link>
-                        </Menu.Item>
                         <Menu.Item key="3" onClick={(e) => {API.logoutUser();}}>
                             <Icon type="logout" />
                             <span>Salir</span>
