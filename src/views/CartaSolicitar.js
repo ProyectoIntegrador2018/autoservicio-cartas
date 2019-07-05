@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    Icon, Button, Modal, Divider
+    Icon, Button, Modal, Divider, Input, Form,
 } from 'antd';
 import DataTable from "../components/DataTable";
 import API from "../tools/API";
@@ -23,12 +23,15 @@ export default class CartaSolicitar extends Component {
         this.setState({value: event.target.value});
     }
 
+
     render() {
         return (
             <div>
+
                 <Button style={{float:'right'}} onClick={this.showModal} type="secondary" icon="printer">
                 Imprimir </Button>
                 <h1><Icon type="solution" /> Cartas y Constancias</h1>
+
                 <br></br>
                 <p>Las constancias académicas (cartas oficiales) incluyen el nombre completo y su número de matrícula y de acuerdo al tipo de documento se solicite, especificará la información correspondiente</p>
                 <div style={{ maxWidth: "550px", margin: "0 auto"}}>
@@ -54,7 +57,7 @@ export default class CartaSolicitar extends Component {
                         <Select.Option value="Terminación de plan_INGLÉS">Terminación de plan_INGLÉS</Select.Option>
                     </Select>
 
-                    
+
                 </div>
                 <br></br>
 
@@ -62,7 +65,7 @@ export default class CartaSolicitar extends Component {
                 <table width="100%">
                   <thead>
                     <tr style={{backgroundColor: "#D3D3D3"}}><th id="TituloCarta" colspan="2">{this.state.selectedOption}</th></tr>
-                  </thead>  
+                  </thead>
                   <tr>
                     <th width="200px">Descripción: </th>
                     <td id="descInfo">Carta donde especifica que el alumno se encuentra inscrito en cierto periodo incluyendo el listado de materias inscritas, así como el promedio acumulado y el promedio del semestre anterior.</td>
@@ -71,13 +74,6 @@ export default class CartaSolicitar extends Component {
                   <tr>
                     <th>Requisitos: </th>
                     <td id="reqInfo">Ser alumno inscrito en el periodo académico vigente en Campus Monterrey</td>
-                  </tr>
-                  <br></br>
-                  <tr>
-                    <th>Medios de Solicitud de trámite: </th>
-                    <td>*Presencial: Centro de Atención Punto Azul ubicado en el sotano del CETEC Torre Norte con un horario de atención de Lunes a Viernes de 8:00 AM a 6:00 PM.<br></br>Los pagos en CAJA se reciben de lunes a viernes de 8:00 AM a 6:00 PM.<br></br><br></br>
-                    *Telefónico: Conmutador 83582000 Ext. 4241/ Directo 81582259  <br></br><br></br>
-                    *Correo electrónico: <a><u>escolar.mty@servicios.itesm.mx</u></a></td>
                   </tr>
                 </table>
 

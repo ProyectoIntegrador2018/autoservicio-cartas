@@ -37,19 +37,26 @@ export default class Documentos extends Component {
 
     uploadData = () => {
       let params = {
-          nombre: this.state.nombre,
+          descripcion: this.state.descripcion,
       };
-       
+
             API.call('agregar_cartas/',{id_admin:'2', file:'Estudios.html', descripcion:'descripcion'}, (resposne) => {
                 Notifications.openNotificationWithIcon("success","¡Información cargada exitosamente!","")
                 API.redirectTo('/formatoCartas');
             });
     };
 
+    handleSelect = (descripcion, keyvalue) => {
+        this.setState({[descripcion]:keyvalue});
+    };
+
     render() {
         return (
             <div>
             <h2>Carta nueva</h2>
+            <Form.Item label="Descripción de la carta: ">
+                <Input type={'text'} onChange={(e) => this.handleSelect('descripcion',e.target.value)}/>
+            </Form.Item>
             <Upload.Dragger>
                 <p className="ant-upload-drag-icon">
                     <Icon type="upload" />
