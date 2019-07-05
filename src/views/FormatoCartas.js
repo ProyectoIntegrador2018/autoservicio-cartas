@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Icon, Button, Modal, Collapse } from 'antd';
+import { Icon, Button, Modal, Collapse,
+ } from 'antd';
+import { linkify } from 'react-linkify'
 import DataTable from "../components/DataTable";
 import { Link } from 'react-router-dom'
 import API from "../tools/API";
@@ -37,7 +39,7 @@ export default class FormatoCartas extends Component {
             },
             error:(response) => {this.setState({ loading: false })},
         });
-        
+
     };
 
     deleteFiles = (rows) => {
@@ -69,6 +71,7 @@ export default class FormatoCartas extends Component {
             permitirBorrar=true
         }
 
+
         return (
             <div>
 
@@ -80,7 +83,8 @@ export default class FormatoCartas extends Component {
 
                 <Collapse defaultActiveKey={['0']} onChange={callback}>
                     <Panel header="Instrucciones" key="1">
-                      <p>{"Aqui van las instrucciones"}</p>
+                    <p>{"Si quiere saber mas sobre como crear una carta presione este link copie este link en su navegador : https://docs.google.com/document/d/15ReAuFoavQNVQSqVvKKkB6zbbe79Tt57OqfHdfQ5eeQ/edit?usp=sharing" }</p>
+
                     </Panel>
                 </Collapse>
 
@@ -89,7 +93,7 @@ export default class FormatoCartas extends Component {
                 columns={[{
                     title: 'Nombre del documento',
                     key: 'nombre_carta',
-                    
+
 
                 }, {
                     title: 'Usuario',
