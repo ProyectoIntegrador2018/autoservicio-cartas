@@ -114,6 +114,7 @@ export default class CartaSolicitar extends Component {
                             autosize={false} 
                             style={{width:"100%"}}>
                         {cartasItems}
+
                     </Select>
                 </div>
 
@@ -146,6 +147,7 @@ export default class CartaSolicitar extends Component {
                   <tr>
                     <th>Requisitos: </th>
                     <td id="reqInfo">Ser alumno inscrito en el periodo académico vigente en Campus Monterrey</td>
+
                   </tr>
                 </table>
 
