@@ -37,10 +37,10 @@ export default class Documentos extends Component {
 
     deleteFiles = (rows) => {
         this.setState({loading:true});
-        API.call('eliminar-documentos/',{documentos:JSON.stringify(rows)}, (response) => {
-            this.setState({ loading:false});
-            this.refreshData();
-        }, (response) => {this.setState({ loading:false})});
+        // API.call('eliminar-documentos/',{documentos:JSON.stringify(rows)}, (response) => {
+        //     this.setState({ loading:false});
+        //     this.refreshData();
+        // }, (response) => {this.setState({ loading:false})});
     };
 
     componentWillMount() {
@@ -56,12 +56,8 @@ export default class Documentos extends Component {
     render() {
 
         let permitirBorrar
-        if (localStorage.getItem("tipo") == '2') {
-            permitirBorrar=false
-        }
-        else {
-            permitirBorrar=true
-        }
+     
+        permitirBorrar=true
 
         return (
             <div>
@@ -69,6 +65,7 @@ export default class Documentos extends Component {
                 <h1><Icon type="solution" /> Cartas Solicitadas</h1>
                 <DataTable loading={this.state.loading} data={this.state.data}
                            deleteFunc={this.deleteFiles} rowSelection={permitirBorrar}
+
                 columns={[{
                     title: 'Matrícula del alumno',
                     key: 'matricula',
@@ -78,10 +75,6 @@ export default class Documentos extends Component {
                     key: 'nombre_alumno',
 
                 },{
-                    title: 'Apellidos',
-                    key: 'apellido',
-
-                }, {
                     title: 'Fecha solicitada',
                     key: 'fecha_creacion',
 

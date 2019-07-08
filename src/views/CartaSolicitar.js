@@ -64,16 +64,25 @@ export default class CartaSolicitar extends Component {
         console.log(this.state.idAlumno)
         console.log(this.state.idCarta)
 
-        API.restCall({
-            service:'obtener_carta/' + this.state.idAlumno + "/" + this.state.idCarta,
-            method: "get",
-            params: "",
-            success:(response) => {
-                console.log(response)
-                this.setState({carta: response, loading:false});
-            },
-            error:(response) => {this.setState({ loading: false })},
-        }); 
+        const axios = require('axios');
+
+        axios('https://api.tramitesescolares.com.mx/' + this.state.idAlumno + "/" + this.state.idCarta, {
+            method: 'GET',
+            responseType: 'blob' //Force to receive data in a Blob Format
+        })
+        .then(response => {
+        //Create a Blob from the PDF Stream
+            const file = new Blob(
+              [response.data], 
+              {type: 'application/pdf'});
+        //Build a URL from the file
+            const fileURL = URL.createObjectURL(file);
+        //Open the URL on new Window
+            window.open(fileURL);
+        })
+        .catch(error => {
+            console.log(error);
+        });
     };
 
     render() {

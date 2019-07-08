@@ -18,6 +18,9 @@ export default class AppLayout extends Component {
     }
 
     Basic = () => {
+        let superUser = localStorage.getItem('is_superuser')
+        console.log(superUser)
+
         return (
             <Layout className={'layout'}>
 
@@ -36,10 +39,12 @@ export default class AppLayout extends Component {
                             <Link to={"/dashboard"}><Icon type="pie-chart" />
                                 <span className="nav-text">Dashboard</span></Link>
                         </Menu.Item>
+                        {superUser === '1' &&
                         <Menu.Item key="1">
                             <Link to={"/administradores"}><Icon type="user" />
                                 <span className="nav-text">Administradores</span></Link>
                         </Menu.Item>
+                        }
                         <Menu.Item key="2">
                             <Link to={"/alumnos"}><Icon type="team" />
                                 <span className="nav-text">Alumnos</span></Link>
@@ -64,14 +69,22 @@ export default class AppLayout extends Component {
                             <Link to={"/procesos"}><Icon type="cluster" />
                                 <span className="nav-text">Procesos</span></Link>
                         </Menu.Item>
+                        
+                        {superUser === '1' &&
                         <Menu.Item  key="4">
-                            <Link to={"/documentos"}><Icon type="file-excel" />
-                            <span className="nav-text">Documentos CSV</span></Link>
+                        <Link to={"/documentos"}><Icon type="file-excel" />
+                        <span className="nav-text">Documentos CSV</span></Link>
                         </Menu.Item>
+                        }
+                        
+                        {superUser === '1' &&
                         <Menu.Item  key="10">
                             <Link to={"/adminBD"}><Icon type="file-excel" />
                             <span className="nav-text">Administrar BD</span></Link>
                         </Menu.Item>
+                        }
+                        
+                        
                         <Menu.Item key="5" onClick={(e) => {API.logout();}}>
                             <Icon type="logout" />
                             <span>Salir</span>

@@ -126,16 +126,10 @@ export default class Administradores extends Component {
         let permitirBorrar
         let botonAgregar
 
-        if (localStorage.getItem("tipo") == '2') {
-            botonAgregar = <Button style={{float:'right'}} onClick={this.showModal} type="secondary" icon="plus" disabled>
-                    Agregar administrador</Button>
-            permitirBorrar=false
-        }
-        else {
-            botonAgregar= <Button style={{float:'right'}} onClick={this.showModal} type="secondary" icon="plus">
-            Agregar administrador</Button>
-            permitirBorrar=true
-        }
+        
+        botonAgregar= <Button style={{float:'right'}} onClick={this.showModal} type="secondary" icon="plus">
+        Agregar administrador</Button>
+        permitirBorrar=true
 
         return (
             <div>

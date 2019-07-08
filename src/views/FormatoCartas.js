@@ -44,7 +44,7 @@ export default class FormatoCartas extends Component {
 
     deleteFiles = (rows) => {
         this.setState({loading:true});
-        API.call('eliminar-documentos/',{documentos:JSON.stringify(rows)}, (response) => {
+        API.call('eliminar_cartas/',{cartas: JSON.stringify(rows)}, (response) => {
             this.setState({ loading:false});
             this.refreshData();
         }, (response) => {this.setState({ loading:false})});
@@ -62,15 +62,8 @@ export default class FormatoCartas extends Component {
         let botonsubir
         let permitirBorrar
 
-        if (localStorage.getItem("tipo") == '2') {
-            botonsubir = <Link to={'/formatoCartas/subir'}><Button style={{float:'right'}} type="secondary" icon="upload" disabled>Subir nuevo formato de carta</Button></Link>
-            permitirBorrar=false
-        }
-        else {
-            botonsubir = <Link to={'/formatoCartas/subir'}><Button style={{float:'right'}} type="secondary" icon="upload" >Subir nuevo formato de carta</Button></Link>
-            permitirBorrar=true
-        }
-
+        botonsubir = <Link to={'/formatoCartas/subir'}><Button style={{float:'right'}} type="secondary" icon="upload" >Subir nuevo formato de carta</Button></Link>
+        permitirBorrar=true
 
         return (
             <div>
@@ -104,7 +97,7 @@ export default class FormatoCartas extends Component {
                     key: 'fecha_creacion',
 
                 }, {
-                    title: 'Tipo de carta',
+                    title: 'Descripcion',
                     key: 'descripcion',
                 }]}/>
 

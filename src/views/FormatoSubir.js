@@ -5,49 +5,48 @@ import {
 import DataTable from "../components/DataTable";
 import API from "../tools/API";
 import Notifications from "../tools/Notifications";
+import { throws } from 'assert';
 
 export default class Documentos extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            loading:true,
-            data: [],
-            dataTable: [],
-            columns: [],
+            file: null,
+            descripcion: '', 
+            loading: true,
             disabled: true,
-            admin: {},
-            loadingTable:false,
-            fileName:"",
-            id_admin:undefined
+            loadingTable: false,
         }
     }
 
-    refreshData = () => {
-        this.setState({loading:true});
-        API.call('agregar_carta/',[], (response) => {
-
-            this.setState({data: response, loading:false});
-        });
-    };
-
     componentWillMount() {
-        this.refreshData();
+
     }
 
     uploadData = () => {
-      let params = {
-          descripcion: this.state.descripcion,
-      };
+        const axios = require('axios');
+        const data = new FormData()
 
-            API.call('agregar_cartas/',{id_admin:'2', file:'Estudios.html', descripcion:'descripcion'}, (resposne) => {
-                Notifications.openNotificationWithIcon("success","¡Información cargada exitosamente!","")
-                API.redirectTo('/formatoCartas');
-            });
+        data.append('id_admin', 6)
+        data.append('descripcion', this.state.descripcion)
+        data.append('file', this.state.file)
+
+        axios.post('https://api.tramitesescolares.com.mx/agregar_cartas/', data, {
+        })
+        .then(response => {
+            console.log(response)
+            Notifications.openNotificationWithIcon("success","¡Información cargada exitosamente!","")
+            API.redirectTo('/formatoCartas');
+        })
+        .catch(error => {
+            console.log(error);
+        });
+
     };
 
-    handleSelect = (descripcion, keyvalue) => {
-        this.setState({[descripcion]:keyvalue});
+    handleSelect = (keyvalue) => {
+        this.setState({descripcion: keyvalue});
     };
 
     render() {
@@ -55,9 +54,15 @@ export default class Documentos extends Component {
             <div>
             <h2>Carta nueva</h2>
             <Form.Item label="Descripción de la carta: ">
-                <Input type={'text'} onChange={(e) => this.handleSelect('descripcion',e.target.value)}/>
+                <Input type={'text'} onChange={(e) => this.handleSelect(e.target.value)}/>
             </Form.Item>
-            <Upload.Dragger>
+
+            <Upload.Dragger
+                beforeUpload={(file, fileList) => {
+                    console.log(file.name)
+                    this.setState({file: file});
+                    return false;
+                }}>
                 <p className="ant-upload-drag-icon">
                     <Icon type="upload" />
                 </p>
@@ -65,21 +70,9 @@ export default class Documentos extends Component {
                 <p className="ant-upload-hint">El sistema solo soporta archivos HTML</p>
             </Upload.Dragger>
 
-                <Divider/>
+            <Divider/>
 
-                <Form.Item label="Fotos nesesarias para las cartas">
-                  </Form.Item>
-
-                  <Upload.Dragger>
-                      <p className="ant-upload-drag-icon">
-                          <Icon type="upload" />
-                      </p>
-                      <p className="ant-upload-text">Haz clic o arrastra un documento en esta área</p>
-                      <p className="ant-upload-hint">El sistema solo soporta archivos PNG</p>
-                  </Upload.Dragger>
-
-                <Divider/>
-                    <Button onClick={this.uploadData} style={{marginTop:10}} className={'button-success'}><Icon type={'upload'}/> Subir datos</Button>
+            <Button onClick={this.uploadData} style={{marginTop:10}} className={'button-success'}><Icon type={'upload'}/> Subir datos</Button>
             </div>
         );
     }
