@@ -79,7 +79,7 @@ npm run build
 
 Sincornizar directorio de construcción con S3
 ```
-aws s3 sync build/ s3://NOMBRE_DE_BALDE_DE_S3
+aws s3 sync build/ s3://www.tramitesescolares.com.mx
 ```
 
 Lanzamiento rapido invalidando caches.

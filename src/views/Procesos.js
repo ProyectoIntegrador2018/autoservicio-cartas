@@ -50,13 +50,31 @@ class ProcesosForm extends Component {
     render() {
         const { getFieldDecorator } = this.props.form;
 
-        return (
-            <div>
-                <Link to={'/proceso/nuevo'}> <Button style={{float:'right'}} type="secondary" icon="plus">
+        let permitirBorrar
+        let botonAgregar
+
+        if (localStorage.getItem("tipo") == '2') {
+            botonAgregar = <Link to={'/proceso/nuevo'}> <Button style={{float:'right'}} type="secondary" icon="plus" disabled>
                     Agregar proceso nuevo</Button></Link>
+
+            permitirBorrar=false
+        }
+        else {
+            botonAgregar = <Link to={'/proceso/nuevo'}> <Button style={{float:'right'}} type="secondary" icon="plus">
+                    Agregar proceso nuevo</Button></Link>
+
+            permitirBorrar=true
+            
+        }
+
+        return (
+            <div>  
+
+                {botonAgregar}
+    
                 <h1><Icon type="cluster" /> Procesos</h1>
                     <DataTable data={this.state.data} loading={this.state.loading}
-                               deleteFunc={this.deleteProcs} rowSelection={true}
+                               deleteFunc={this.deleteProcs} rowSelection={permitirBorrar}
                            columns={[
                                {title: 'Nombre del proceso',key: 'nombre', },
                                {title: 'Pasos',key: 'pasos',},

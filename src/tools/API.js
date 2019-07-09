@@ -6,10 +6,13 @@ export default class API {
 
     static bodySiteRef = null;
     static cookies = new Cookies();
+    static apiLocal = "https://api.tramitesescolares.com.mx/"
+    //static apiLocal = "http://127.0.0.1:8000/"
+
 
     static call(service, params={}, responseFunc=(function(response){}),errorFunc=(function(response){}), wToken=true) {
-        let  client = new FetchHttpClient('https://api.tramitesescolares.com.mx/');
-        //let  client = new FetchHttpClient('http://localhost:8000/');
+        //let  client = new FetchHttpClient('https://api.tramitesescolares.com.mx/');
+        let  client = new FetchHttpClient(this.apiLocal);
         client.addMiddleware(form());
         client.addMiddleware(json());
 
@@ -45,23 +48,32 @@ export default class API {
             params: "",
             success: (function(response){}),
             error: (function(response){}),
-            wToken: true
+            wToken: true,
         }
+
         for (var key in options) {
             op[key] = options[key];
         }
 
-        let  client = new FetchHttpClient('https://api.tramitesescolares.com.mx/');
-        //let  client = new FetchHttpClient('http://localhost:8000/');
+        //let  client = new FetchHttpClient('https://api.tramitesescolares.com.mx/');
+        let  client = new FetchHttpClient(this.apiLocal);
         client.addMiddleware(form());
         client.addMiddleware(json());
+
         if (op.wToken) {
-            client.addMiddleware(header({'Authorization': 'Token ' + localStorage.getItem('token')}));
+            client.addMiddleware(header(
+                {'Authorization': 'Token ' + localStorage.getItem('token')
+            }));
         }
         client[op.method](op.service, {form: op.params}).then(response => {
             //console.log(op.method)
             if (response.status === 200) {
                 //console.log(response.jsonData);
+                if(op.pdf){
+                    console.log(response)
+                    return op.success(response)
+                }
+
                 return op.success(response.jsonData);
             } else if (response.status === 500)  {
                 //console.log(response);
